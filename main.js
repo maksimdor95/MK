@@ -11,7 +11,7 @@ const player1 = {
 
 const player2 = {
     name: 'Liukang',
-    hp: 100,
+    hp: 80,
     img: 'http://reactmarathon-api.herokuapp.com/assets/liukang.gif',
     weapon: ['knife', 'sword', 'pistol', 'gun'],
     attack: function () {
@@ -19,7 +19,7 @@ const player2 = {
     }
 }
 //task 1
-function createPlayer(player, namePlayer) {
+function createPlayer(player, namePlayer, hp) {
     const playerFirst = document.createElement('div');
     const progressbar = document.createElement('div');
     const character = document.createElement('div');
@@ -32,7 +32,7 @@ function createPlayer(player, namePlayer) {
     progressbar.className = 'progressbar';
     character.className = 'character';
     life.className = 'life';
-    life.style.width = '100%';
+    life.style.width = hp +'%';
     name.textContent = namePlayer.name;
     img.src = namePlayer.img;
     name.className = 'name';
@@ -49,9 +49,5 @@ function createPlayer(player, namePlayer) {
     
 }
 
-
-
-
-
-createPlayer('player1', player1);
-createPlayer('player2', player2);
+createPlayer('player1', player1, 50);
+createPlayer('player2', player2, 80);
