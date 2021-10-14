@@ -1,5 +1,5 @@
 //task 0
-const player1 = {
+const kitana = {
     name: 'Kitana',
     hp: 100,
     img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
@@ -9,7 +9,7 @@ const player1 = {
     }
 }
 
-const player2 = {
+const liukang = {
     name: 'Liukang',
     hp: 80,
     img: 'http://reactmarathon-api.herokuapp.com/assets/liukang.gif',
@@ -49,5 +49,5 @@ function createPlayer(player, namePlayer, hp) {
     
 }
 
-createPlayer('player1', player1, 50);
-createPlayer('player2', player2, 80);
+createPlayer('player1', kitana, 50);
+createPlayer('player2', liukang, 80);
