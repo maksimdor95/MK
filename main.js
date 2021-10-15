@@ -1,54 +1,63 @@
 //task 0
 const arena = document.querySelector('.arenas');
-const kitana = {
+const player1 = {
+    player: 1,
     name: 'Kitana',
-    hp: 100,
+    hp: 50,
     img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
     weapon: ['knife', 'sword', 'pistol', 'gun'],
-    attack: function () {
-        console.log( player1.name + ' ' +'Figth...');
+    attack: function (name) {
+        console.log(name + ' ' +'Figth...');
     }
 }
 
-const liukang = {
+const player2 = {
+    player: 2,
     name: 'Liukang',
-    hp: 100,
+    hp: 80,
     img: 'http://reactmarathon-api.herokuapp.com/assets/liukang.gif',
     weapon: ['knife', 'sword', 'pistol', 'gun'],
-    attack: function () {
-        console.log( player1.name + ' ' +'Figth...');
+    attack: function (name) {
+        console.log( name + ' ' +'Figth...');
     }
 }
+
+function createElement(tag, className) {
+    const tags = document.createElement(tag);
+    if (className) {
+        tags.classList.add(className);
+    }
+    
+
+    return tags;
+
+}
 //task 1
-function createPlayer(player, namePlayer, hp) {
-    const playerFirst = document.createElement('div');
-    const progressbar = document.createElement('div');
-    const character = document.createElement('div');
-    const life = document.createElement('div');
-    const name = document.createElement('div');
-    const img = document.createElement('img');
+function createPlayer(playerObj) {
+    const player = createElement('div', 'player' +  playerObj.player);
+    const progressbar = createElement('div', 'progressbar');
+    const character = createElement('div', 'character');
+    const life = createElement('div', 'life');
+    const name = createElement('div', 'name');
+    const img = createElement('img');
 
 
-    playerFirst.className = player;
-    progressbar.className = 'progressbar';
-    character.className = 'character';
-    life.className = 'life';
-    life.style.width = 80 +'%';
-    name.textContent = namePlayer.name;
-    img.src = namePlayer.img;
-    name.className = 'name';
-    name.textContent = namePlayer.name;
-    img.src = namePlayer.img;
+    
+    life.style.width = playerObj.hp +'%';
+    name.innerText = playerObj.name;
+    img.src =  playerObj.img;
+   
 
-
-    arena.appendChild(playerFirst);
-    playerFirst.appendChild(progressbar);
-    playerFirst.appendChild(character);
+    
+    player.appendChild(progressbar);
+    player.appendChild(character);
     progressbar.appendChild(life);
     progressbar.appendChild(name);
     character.appendChild(img);
+
+    return player;
     
 }
 
-createPlayer('player1', kitana);
-createPlayer('player2', liukang);
+arena.appendChild(createPlayer( player1));
+arena.appendChild(createPlayer( player2));
